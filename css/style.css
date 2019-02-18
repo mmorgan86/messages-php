@@ -1,0 +1,11 @@
+tbody tr:nth-child(odd) {
+  background-color: rgba(240, 240, 240, 0.493);
+}
+
+table {
+  margin: 3em auto;
+}
+
+.errormessage {
+  color: red;
+}
