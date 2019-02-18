@@ -1,6 +1,8 @@
 <?php
 require "dbh.inc.php";
-
+if(isset($_GET['userid'])) {
+  $userId = $_GET['userid'];
+}
 
 if(isset($_POST['submit-message'])){
   $name = $_POST['name'];
@@ -33,12 +35,12 @@ else if (isset($_POST['submit-update'])) {
   $updateEmail = $_POST['email'];
   $updateMessage = $_POST['message'];
 
-$sql = "UPDATE messages SET name=?, email=?, message=? WHERE id=?";
+  $sql = "UPDATE messages SET name=?, email=?, message=? WHERE id=?";
   $stmt = $conn->prepare($sql);
-  $stmt->execute([$updateName, $updateEmail, $updateMessage, $updateId]);
+  $stmt->execute([$updateName, $updateEmail, $updateMessage, $userId]);
 
-  // header("Location: ../index.php?message=success");
-  // exit();
+  header("Location: ../index.php?message=success");
+  exit();
 }
 else {
   header("Location: ../index.php");

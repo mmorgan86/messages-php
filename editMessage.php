@@ -22,7 +22,7 @@
   }
 ?>
 
-<form class="text-center" action="includes/message.inc.php" method="post">
+<form class="text-center" action="includes/message.inc.php?userid=<?php echo $id;?>" method="post">
   <div class="form-group">
     <label for="name">Name:</label><br>
     <?php 
